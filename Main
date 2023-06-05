@@ -166,7 +166,7 @@ local RayfieldLibrary = {
 			   SearchIcon = Color3.fromRGB(27, 44, 112),
 			   XIcon = Color3.fromRGB(27, 44, 112),
 		 
-			   Divider = Color3.fromRGB(0,0,0),
+			   Divider = Color3.fromRGB(255,255,255),
 		 
 			   LoadingBackground = Color3.fromRGB(20, 18, 50),
 		 
