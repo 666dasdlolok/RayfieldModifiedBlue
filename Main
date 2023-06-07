@@ -2151,7 +2151,10 @@ Default = {
 
                         DropdownOption.Interact.ZIndex = 50
                         DropdownOption.Interact.MouseButton1Click:Connect(function()
-							DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
+							if type(DropdownSettings.CurrentOption) == "table" then
+								DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
+							end
+							
                             if (DropdownSettings.Multi and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
                                 if DropdownSettings.Multi then
                                     table.insert(DropdownSettings.CurrentOption, Option)
