@@ -2151,28 +2151,8 @@ Default = {
 
                         DropdownOption.Interact.ZIndex = 50
                         DropdownOption.Interact.MouseButton1Click:Connect(function()
-
-							function IsTableOptions()
-								if type(DropdownSettings.CurrentOption) == "table" then 
-									return true
-								else
-									return false
-								end
-							end
-
-							
-							function IsStringOptions()
-								if type(DropdownSettings.CurrentOption) == "string" then 
-									return true
-								else
-									return false
-								end
-							end
-
-                            if (DropdownSettings.Multi and IsTableOptions() and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) or (DropdownSettings.Multi and IsStringOptions()) then
-								Option = {Option} 
+                            if (DropdownSettings.Multi and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
                                 if DropdownSettings.Multi then
-									Option = {Option}
                                     table.insert(DropdownSettings.CurrentOption, Option)
                                     Dropdown.Selected.Text = table.concat(DropdownSettings.CurrentOption, ", ")
                                 else
