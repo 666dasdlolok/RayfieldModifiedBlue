@@ -2172,6 +2172,7 @@ Default = {
                             if (DropdownSettings.Multi and IsTableOptions() and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) or (DropdownSettings.Multi and IsStringOptions()) then
 								Option = {Option} 
                                 if DropdownSettings.Multi then
+									Option = {Option}
                                     table.insert(DropdownSettings.CurrentOption, Option)
                                     Dropdown.Selected.Text = table.concat(DropdownSettings.CurrentOption, ", ")
                                 else
