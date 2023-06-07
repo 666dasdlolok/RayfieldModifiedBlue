@@ -2160,7 +2160,17 @@ Default = {
 								end
 							end
 
-                            if (DropdownSettings.Multi and IsTableOptions() and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
+							
+							function IsStringOptions()
+								if type(DropdownSettings.CurrentOption) == "string" then 
+									return true
+								else
+									return false
+								end
+							end
+
+                            if (DropdownSettings.Multi and IsTableOptions() and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) or (DropdownSettings.Multi and IsStringOptions()) then
+								Option = {Option} 
                                 if DropdownSettings.Multi then
                                     table.insert(DropdownSettings.CurrentOption, Option)
                                     Dropdown.Selected.Text = table.concat(DropdownSettings.CurrentOption, ", ")
