@@ -2150,8 +2150,14 @@ Default = {
                         DropdownOption.Title.TextTransparency = 1
 
                         DropdownOption.Interact.ZIndex = 50
-                        DropdownOption.Interact.MouseButton1Click:Connect(function()			
-                            if (DropdownSettings.Multi and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
+                        DropdownOption.Interact.MouseButton1Click:Connect(function()
+                        function IsTable()
+							if type(DropdownSettings.CurrentOption) == "table" then
+								return true
+							end
+                        end
+							
+                            if (DropdownSettings.Multi and IsTable() and not table.find(DropdownSettings.CurrentOption, Option)) or (not DropdownSettings.Multi and DropdownSettings.CurrentOption ~= Option) then
                                 if DropdownSettings.Multi then
                                     table.insert(DropdownSettings.CurrentOption, Option)
                                     Dropdown.Selected.Text = table.concat(DropdownSettings.CurrentOption, ", ")
