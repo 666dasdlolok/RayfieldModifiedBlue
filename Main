@@ -2154,6 +2154,8 @@ Default = {
                         function IsTable()
 							if type(DropdownSettings.CurrentOption) == "table" then
 								return true
+								else
+								DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
 							end
                         end
 							
